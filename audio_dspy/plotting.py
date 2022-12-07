@@ -196,7 +196,7 @@ def plot_harmonic_response(function, freq=100, fs=44100, gain=0.1, num=10000):
     x = gain*np.sin(2 * np.pi * n * freq / fs)
     y = function(np.copy(x))
 
-    f = np.linspace(0, fs/2, num=num/2+1)
+    f = np.linspace(0, fs/2, num=num//2+1)
     H = adsp.normalize(np.fft.rfft(y))
     plot = plt.semilogx(f, 20 * np.log10(np.abs(H)))
     plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter())
